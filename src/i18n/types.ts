@@ -4,6 +4,19 @@ export interface CopyBlock {
   body: string;
 }
 
+/**
+ * Una sección de la política de privacidad.
+ *
+ * `summary` es la versión en lenguaje simple y `body` el detalle. El brief §3
+ * exige lenguaje claro y sin jerga: la política cumple igual, pero se puede
+ * leer sin ser abogado.
+ */
+export interface PolicySection {
+  title: string;
+  summary: string;
+  body: string[];
+}
+
 /** Etiqueta, placeholder y mensaje de error de un campo del formulario. */
 export interface FieldCopy {
   label: string;
@@ -43,7 +56,13 @@ export interface Copy {
       organization: FieldCopy;
     };
     submit: string;
+    /** Consentimiento para entregar el reporte: obligatorio, sin él no hay envío. */
     consent: string;
+    /**
+     * Consentimiento separado para la secuencia de emails (Ley 21.719: cada
+     * finalidad necesita el suyo). Opcional y desmarcado por defecto.
+     */
+    marketingConsent: string;
     privacyLink: string;
     analyzingTitle: string;
     steps: string[];
@@ -81,5 +100,21 @@ export interface Copy {
   footer: {
     descriptor: string;
     rights: string;
+    privacy: string;
+  };
+  privacy: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    /** Fecha de última actualización, ya formateada en el idioma. */
+    lastUpdated: string;
+    /** Aviso de que falta constituir la sociedad / definir el responsable. */
+    controllerPending: string;
+    /** Aviso de que falta el buzón para ejercer derechos (config.CONTACT_EMAIL). */
+    contactPending: string;
+    /** Nota de que la versión en español es la que prevalece. */
+    languageNote: string;
+    sections: PolicySection[];
+    backToSite: string;
   };
 }

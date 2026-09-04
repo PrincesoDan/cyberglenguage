@@ -14,7 +14,14 @@ export const SCHEDULING_URL = '';
 export const CONTACT_EMAIL = '';
 
 /**
- * TODO: política de privacidad (brief §4.4 y §8: requisito legal al capturar emails).
- * Vacío = el consentimiento se muestra sin enlace.
+ * Política de privacidad (brief §4.4 y §8: requisito legal al capturar emails).
+ * Es una ruta interna del propio sitio, servida por <PrivacyPolicy />.
  */
-export const PRIVACY_POLICY_URL = '';
+export const PRIVACY_POLICY_URL = '/privacidad';
+
+/**
+ * TODO: identificación del responsable del tratamiento — nombre completo o
+ * razón social y RUT (Ley 21.719). Todavía no hay sociedad constituida.
+ * Vacío = la política muestra el aviso de dato pendiente.
+ */
+export const DATA_CONTROLLER = '';

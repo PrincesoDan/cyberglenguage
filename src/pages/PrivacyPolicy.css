@@ -1,0 +1,84 @@
+/*
+ * Política de privacidad. Es un documento para leer, no una landing:
+ * una sola columna angosta, sin grid ni tarjetas.
+ */
+.policy__inner {
+  max-width: 72ch;
+}
+
+.policy__title {
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-3);
+}
+
+.policy__intro {
+  margin-bottom: var(--space-3);
+}
+
+/* Fecha de actualización y nota de idioma: contexto, no contenido. */
+.policy__meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  color: var(--color-steel);
+  margin-top: var(--space-1);
+}
+
+.policy__header {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.policy__section {
+  margin-top: var(--space-6);
+}
+
+.policy__section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+/*
+ * El resumen en lenguaje simple. Va antes del detalle y con más peso visual
+ * que él a propósito: quien solo lee los resúmenes igual entiende la política.
+ */
+.policy__summary {
+  border-left: 2px solid var(--color-gold);
+  padding-left: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-size: 1.0625rem;
+  color: var(--color-ink);
+}
+
+.policy__body {
+  color: var(--color-steel);
+  margin-bottom: var(--space-2);
+}
+
+/* Dato que falta antes de publicar. Tiene que incomodar. */
+.policy__pending {
+  border: 1px dashed var(--color-error);
+  border-radius: var(--radius-button);
+  padding: var(--space-2);
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: 1.5;
+  color: var(--color-error);
+}
+
+.policy__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.policy__contact {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+}

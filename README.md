@@ -45,7 +45,7 @@ Para revisar algo tal como se va a publicar, corre `npm run build` y después
 
 | | |
 |---|---|
-| **React 19** + **TypeScript** | Sin router: es una sola página con anclas |
+| **React 19** + **TypeScript** | Sin librería de router: dos vistas resueltas por `pathname` en `App.tsx` |
 | **Vite 7** | Build y servidor de desarrollo |
 | **CSS plano** | Sin Tailwind ni CSS-in-JS. Un `.css` por componente + tokens globales |
 
@@ -71,8 +71,18 @@ El orden lo define [`src/App.tsx`](src/App.tsx):
 | Contacto | `Contact.tsx` | CTA final |
 | Footer | `Footer.tsx` | Logo, descriptor y copyright |
 
+Además hay una segunda vista fuera de la landing: **`/privacidad`**, la política
+de privacidad ([`src/pages/PrivacyPolicy.tsx`](src/pages/PrivacyPolicy.tsx)).
+El ruteo son ~10 líneas en `src/App.tsx` que miran el `pathname`, sin
+dependencia de router: son dos vistas y los enlaces son `<a>` normales.
+
+> **Al desplegar:** el host tiene que reescribir las rutas desconocidas a
+> `index.html`, o `/privacidad` va a dar 404 en producción. En Vercel, Netlify y
+> Cloudflare Pages es una línea de configuración. `npm run dev` y
+> `npm run preview` ya lo hacen solos, así que en local funciona sin tocar nada.
+
 **Faltan dos secciones que el brief pide** y que quedaron fuera por no tener los
-datos (está anotado en `src/App.tsx:11-16`): **"Prueba"** (logos de clientes,
+datos (está anotado en `src/App.tsx:32-39`): **"Prueba"** (logos de clientes,
 resultados o un mockup de la marca siendo citada) y **"Sobre mí"** (la bio de la
 consultora — el brief insiste en que, siendo consultoría, la persona importa).
 Cuando lleguen esos contenidos van entre `<Services />` y `<Contact />`.
@@ -90,6 +100,33 @@ El puntaje que muestra es **42 fijo**, tomado literalmente del ejemplo del brief
 (`AuditWidget.tsx:22`). En pantalla sale marcado como demo. Todo el motor de
 auditoría del brief §6 — crawling con navegador headless, rúbrica, llamada al
 modelo, PDF, captura del lead — **está por construir**.
+
+### La política de privacidad
+
+Está en `/privacidad`, con el texto en `i18n/` como todo lo demás. Redactada
+contra la **Ley 21.719** (publicada el 13-12-2024, en vigencia desde el
+**1 de diciembre de 2026**), no contra la Ley 19.628 que reemplaza — la ley
+nueva entra a regir antes de que el sitio lleve un año publicado.
+
+Once secciones, cada una con un resumen en lenguaje simple sobre el detalle
+legal: el brief §3 exige lenguaje claro y sin jerga, y una política en legalés
+contradice la voz de la marca.
+
+Decisiones que están tomadas a propósito y conviene no deshacer sin pensarlo:
+
+- **El español es la versión que manda.** El inglés es traducción de cortesía y
+  el propio documento lo dice, para que una diferencia de traducción no genere
+  una obligación distinta.
+- **Dos consentimientos, no uno.** Entregar el reporte y mandar la secuencia de
+  correos son finalidades distintas y la ley pide el consentimiento de cada una
+  por separado. El de marketing va desmarcado y **no** bloquea la entrega del
+  reporte.
+- **Los datos que faltan se muestran en rojo** dentro de la propia página, en vez
+  de omitirse. Quien vaya a publicar tiene que tropezarse con ellos.
+
+⚠️ **Es un borrador sin revisión legal.** Está bien estructurado y cubre lo que
+la ley pide, pero antes de publicar con captura de datos real debería revisarlo
+un abogado. Las multas de la 21.719 llegan a 20.000 UTM.
 
 ### Bilingüe ES / EN
 
@@ -145,15 +182,18 @@ lo estén, **la UI no inventa destinos**: avisa que falta el dato.
 | Constante | Qué pasa mientras esté vacía |
 |---|---|
 | `SCHEDULING_URL` | El botón "Agenda una llamada" sale **deshabilitado** y se muestra "Enlace de agenda pendiente de configurar" |
-| `CONTACT_EMAIL` | No se muestra ningún email en Contacto |
-| `PRIVACY_POLICY_URL` | El consentimiento se muestra sin enlace a la política |
+| `CONTACT_EMAIL` | No se muestra ningún email en Contacto, y la política de privacidad avisa que no hay canal para ejercer derechos |
+| `DATA_CONTROLLER` | La política muestra en rojo que falta identificar al responsable del tratamiento |
+
+`PRIVACY_POLICY_URL` ya está resuelto: apunta a `/privacidad`, la vista interna.
 
 Llenar `SCHEDULING_URL` con el link de Calendly o Cal.com es el cambio de una
 línea que activa el CTA principal de toda la página.
 
-**`PRIVACY_POLICY_URL` es requisito legal**, no un detalle: el brief §4.4 y §8
-exigen consentimiento explícito con enlace a la política antes de capturar
-emails. Hoy el checkbox existe pero no tiene a dónde apuntar.
+**`CONTACT_EMAIL` y `DATA_CONTROLLER` bloquean la publicación legal.** La Ley
+21.719 exige identificar al responsable del tratamiento y ofrecer un canal real
+para ejercer derechos. Sin esos dos datos la política está escrita pero no sirve,
+y la propia página lo dice en rojo.
 
 ### 2. Copy pendiente de la consultora
 
@@ -173,14 +213,22 @@ marcado con `TODO` en el código — `grep -rn "TODO" src/` los lista todos:
   `TODO` que queda en `index.html:24`. Sin ella, el link se comparte sin
   previsualización.
 
-### 4. Un bug conocido
+### 4. Banner de cookies
+
+Si se instala analítica (Google Analytics, Meta Pixel o similar), las cookies no
+esenciales **necesitan consentimiento previo** y hay que sumar un banner. La
+política ya declara las cookies de analítica en su sección 6, así que hoy el
+documento promete algo que la UI todavía no ofrece: o se construye el banner, o
+no se instala analítica hasta entonces.
+
+### 5. Un bug conocido
 
 La píldora del descriptor en el hero **se desborda en móvil**. El texto solo ya
 mide ~396px y en un iPhone quedan ~342px útiles, así que se sale de pantalla en
 cualquier teléfono. Se arregla con `flex-wrap: wrap` y `max-width: 100%` en
 `.hero__badge` (`src/components/Hero.css`), pero está sin tocar.
 
-### 5. Todo el producto
+### 6. Todo el producto
 
 El motor de auditoría del brief §6 completo: crawling, rúbrica de puntaje,
 recomendaciones con IA, PDF con branding, guardado del lead y la integración de
@@ -197,7 +245,9 @@ public/                 Favicon (SVG + PNG 32/16) y apple-touch-icon
 src/
   main.tsx              Entrypoint: monta React dentro de <LanguageProvider>
   App.tsx               El orden de las secciones
-  config.ts             URLs pendientes (agenda, email, política)
+  config.ts             URLs y datos pendientes (agenda, email, responsable)
+  pages/
+    PrivacyPolicy.tsx   Política de privacidad, servida en /privacidad
   components/           Un .tsx + su .css por sección
     BrandIcons.tsx      Los cuatro SVG de marca
     AuditWidget.tsx     La maqueta del flujo de auditoría
@@ -217,3 +267,6 @@ info/                   El brief original y los assets de marca entregados
 - Los comentarios explican **por qué**, y citan la sección del brief que lo pide.
 - Si un dato no existe todavía, **la UI lo dice** en vez de apuntar a un link
   inventado. No rellenar con placeholders que parezcan reales.
+- **Cada finalidad de uso de datos lleva su propio consentimiento.** Si mañana
+  aparece otro uso (por ejemplo compartir con un CRM), va con su propia casilla
+  y su propio párrafo en la política — nunca dentro de una casilla existente.

@@ -45,6 +45,7 @@ export function AuditWidget() {
   const [values, setValues] = useState<Record<FieldName, string>>(EMPTY_VALUES);
   const [invalidFields, setInvalidFields] = useState<FieldName[]>([]);
   const [hasConsent, setHasConsent] = useState(false);
+  const [wantsMarketing, setWantsMarketing] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
 
   const steps = copy.audit.steps;
@@ -86,6 +87,7 @@ export function AuditWidget() {
     setValues(EMPTY_VALUES);
     setInvalidFields([]);
     setHasConsent(false);
+    setWantsMarketing(false);
   }
 
   if (status === 'analyzing') {
@@ -156,7 +158,12 @@ export function AuditWidget() {
           ))}
         </div>
 
-        {/* §4.4 y §8 — consentimiento explícito, obligatorio al capturar emails. */}
+        {/*
+          Dos consentimientos, no uno. Entregar el reporte y mandar una secuencia
+          de marketing son finalidades distintas, y la Ley 21.719 pide el
+          consentimiento de cada una por separado: el paraguas ("acepto todo")
+          no es válido. El de marketing va desmarcado y no bloquea el envío.
+        */}
         <label className="audit__consent">
           <input
             type="checkbox"
@@ -167,6 +174,15 @@ export function AuditWidget() {
             {copy.audit.consent}{' '}
             {PRIVACY_POLICY_URL && <a href={PRIVACY_POLICY_URL}>{copy.audit.privacyLink}</a>}
           </span>
+        </label>
+
+        <label className="audit__consent">
+          <input
+            type="checkbox"
+            checked={wantsMarketing}
+            onChange={(event) => setWantsMarketing(event.target.checked)}
+          />
+          <span>{copy.audit.marketingConsent}</span>
         </label>
 
         <button type="submit" className="button button--primary audit__submit" disabled={!hasConsent}>

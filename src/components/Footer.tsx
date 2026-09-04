@@ -1,3 +1,4 @@
+import { PRIVACY_POLICY_URL } from '../config';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LogoMark } from './BrandIcons';
 import './Footer.css';
@@ -17,9 +18,14 @@ export function Footer() {
           </p>
           <p className="footer__descriptor">{copy.footer.descriptor}</p>
         </div>
-        <p className="footer__rights">
-          © {year} {copy.brand.name}. {copy.footer.rights}
-        </p>
+        <div className="footer__legal">
+          <a className="footer__privacy" href={PRIVACY_POLICY_URL}>
+            {copy.footer.privacy}
+          </a>
+          <p className="footer__rights">
+            © {year} {copy.brand.name}. {copy.footer.rights}
+          </p>
+        </div>
       </div>
     </footer>
   );

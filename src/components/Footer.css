@@ -33,3 +33,25 @@
   color: rgba(237, 239, 243, 0.6);
   margin-top: var(--space-1);
 }
+
+.footer__legal {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: var(--space-1);
+}
+
+.footer__privacy {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+}
+
+.footer__legal .footer__rights {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .footer__legal {
+    align-items: start;
+  }
+}
