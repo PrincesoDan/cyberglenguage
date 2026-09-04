@@ -1,0 +1,35 @@
+.footer {
+  background: var(--color-ink);
+  color: var(--color-porcelain);
+  padding-block: var(--space-6);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: end;
+  justify-content: space-between;
+}
+
+.footer__wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.footer__logo-mark {
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer__descriptor,
+.footer__rights {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  color: rgba(237, 239, 243, 0.6);
+  margin-top: var(--space-1);
+}

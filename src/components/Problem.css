@@ -1,0 +1,27 @@
+/* Signo de sección (§02). Decorativo, así que va antes del eyebrow y no
+   interrumpe el orden de lectura del encabezado. */
+.problem__mark {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.problem__positioning {
+  margin-top: var(--space-3);
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.problem__card h3 {
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 820px) {
+  .problem__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,69 @@
+.hero {
+  padding-block: clamp(3.5rem, 2rem + 6vw, 7rem);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Píldora del descriptor de marca. */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 6px 14px;
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+}
+
+/* Los corchetes van en Porcelana para no fundirse con el texto Oro de la
+   píldora — así el punto dorado sigue siendo el acento, como en el original. */
+.hero__badge-mark {
+  display: block;
+  flex-shrink: 0;
+  color: var(--color-porcelain);
+}
+
+/* El ancho debe dar para la línea más larga de ambos idiomas ("Que la IA te
+   recomiende." / "Get recommended by AI.") sin que se parta en tres. */
+.hero__title {
+  margin-top: var(--space-3);
+  max-width: 25ch;
+}
+
+.hero__title-line {
+  display: block;
+  color: var(--color-porcelain);
+}
+
+.hero__title-line--accent {
+  color: var(--color-gold);
+}
+
+.hero__value-prop {
+  margin-block: var(--space-3) var(--space-6);
+  max-width: 58ch;
+  font-size: 1.125rem;
+}
+
+.hero__secondary-cta {
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  .hero__badge {
+    letter-spacing: 0.04em;
+  }
+
+  .hero__title {
+    max-width: none;
+  }
+}

@@ -1,0 +1,195 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 500;
+}
+
+p {
+  margin: 0;
+}
+
+/* §03 — El oro no tiene contraste para texto pequeño sobre blanco; sobre Tinta sí. */
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor centrado — §05: máx. 1100–1200px, 24px de margen en móvil. */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--content-gutter);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+/* El header es sticky: los destinos de ancla necesitan margen para no quedar tapados. */
+.section[id] {
+  scroll-margin-top: 80px;
+}
+
+.section--dark {
+  background: var(--color-ink);
+  color: var(--color-porcelain);
+}
+
+.section--light {
+  background: var(--color-porcelain);
+}
+
+/* Eyebrow / etiqueta — §04: mono, 12–13px, con letter-spacing. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel);
+  margin: 0 0 var(--space-2);
+}
+
+.section--dark .eyebrow {
+  color: var(--color-gold);
+}
+
+/* §05 — Botón primario: fondo oro, texto tinta, radio 8px. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 14px var(--space-3);
+  border-radius: var(--radius-button);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+/* El CTA de agenda queda deshabilitado mientras SCHEDULING_URL esté vacío. */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button--primary {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.button--primary:hover {
+  background: var(--color-gold-hover);
+}
+
+/* §05 — Botón secundario: borde tinta, fondo transparente. */
+.button--secondary {
+  background: transparent;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.button--secondary:hover {
+  background: var(--color-ink);
+  color: var(--color-porcelain);
+}
+
+.section--dark .button--secondary,
+.header--dark .button--secondary {
+  border-color: var(--color-porcelain);
+  color: var(--color-porcelain);
+}
+
+.section--dark .button--secondary:hover,
+.header--dark .button--secondary:hover {
+  background: var(--color-porcelain);
+  color: var(--color-ink);
+}
+
+/* §05 — Tarjeta: fondo blanco, borde divisor, radio 14px. */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+
+.lead {
+  color: var(--color-steel);
+  max-width: 62ch;
+}
+
+.section--dark .lead {
+  color: var(--color-porcelain);
+  opacity: 0.82;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

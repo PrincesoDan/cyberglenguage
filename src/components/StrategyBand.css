@@ -1,0 +1,25 @@
+.strategy__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  align-items: start;
+}
+
+.strategy__inner h2 {
+  color: var(--color-porcelain);
+}
+
+/* Comillas de apertura encabezando la declaración (§02). Decorativas: el
+   contraste lo aporta el h2, no el símbolo. */
+.strategy__quote {
+  display: block;
+  margin-bottom: var(--space-3);
+  opacity: 0.9;
+}
+
+@media (max-width: 820px) {
+  .strategy__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
