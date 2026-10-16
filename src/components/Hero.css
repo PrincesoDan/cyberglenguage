@@ -15,7 +15,7 @@
   align-items: center;
   gap: var(--space-1);
   padding: 6px 14px;
-  border: 1px solid rgba(198, 161, 91, 0.4);
+  border: 1px solid rgba(192, 163, 101, 0.4);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: var(--text-label);
