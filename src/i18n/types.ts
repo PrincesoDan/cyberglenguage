@@ -1,4 +1,5 @@
 import type { ServiceId } from '../data/services';
+import type { TeamMemberId } from '../data/team';
 import type { NavPageId, RoutePage } from '../routes';
 
 /** Bloque de mensaje con titular y desarrollo. */
@@ -193,6 +194,27 @@ export interface WorkCopy {
   resultLabel: string;
 }
 
+export interface AboutCopy {
+  eyebrow: string;
+  title: string;
+  storyTitle: string;
+  /** Plantilla del brief: los huecos van entre [corchetes] y se muestran como pendientes. */
+  story: string;
+  missionTitle: string;
+  mission: string;
+  teamTitle: string;
+  /** null = bio pendiente de entrega. */
+  bios: Record<TeamMemberId, string | null>;
+  details: Record<TeamMemberId, string | null>;
+  bioPending: string;
+  detailsLabel: string;
+  detailsPending: string;
+  closing: {
+    title: string;
+    body: string;
+  };
+}
+
 /**
  * Forma del copy del sitio. `es/index.ts` y `en/index.ts` la implementan, así
  * que agregar una clave obliga a traducirla en ambos idiomas.
@@ -209,6 +231,7 @@ export interface Copy {
   services: ServicesCopy;
   home: HomeCopy;
   work: WorkCopy;
+  about: AboutCopy;
   geo: GeoCopy;
   privacy: PrivacyCopy;
 }
