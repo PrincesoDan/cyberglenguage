@@ -5,3 +5,5 @@ dist-ssr
 .DS_Store
 .vite
 info
+# Material del cliente (briefs, zips). Fuente de trabajo, no se versiona.
+temp/

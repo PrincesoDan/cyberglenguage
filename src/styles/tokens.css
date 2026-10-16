@@ -5,8 +5,9 @@
  */
 :root {
   /* §03 — Paleta */
-  --color-ink: #0f1a2b;          /* Tinta Profunda — principal, ~60% */
-  --color-gold: #c6a15b;         /* Oro Champán — acento, ~10% */
+  /* Hex tomados de los logos de Cyber Positioning (temp/Logos CyberP.zip), que comparten paleta con CyberLanguage. */
+  --color-ink: #11192a;          /* Tinta Profunda — principal, ~60% */
+  --color-gold: #c0a365;         /* Oro Champán — acento, ~10% */
   --color-porcelain: #edeff3;    /* Porcelana — fondo claro, ~25% */
   --color-steel: #5c6b7c;        /* Acero — soporte, ~5% */
 
@@ -17,7 +18,7 @@
   --color-border: #d8dce3;
 
   /* Oro oscurecido ~8% para el hover del botón primario (§05). */
-  --color-gold-hover: #b69454;
+  --color-gold-hover: #ad9054;
 
   /* §04 — Familias */
   --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
@@ -49,5 +50,5 @@
   /* §05 — Radios, sombra */
   --radius-button: 8px;
   --radius-card: 14px;
-  --shadow-raised: 0 24px 60px -30px rgba(15, 26, 43, 0.35);
+  --shadow-raised: 0 24px 60px -30px rgba(17, 25, 42, 0.35);
 }

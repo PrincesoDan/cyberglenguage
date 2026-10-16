@@ -8,8 +8,9 @@ interface ScheduleButtonProps {
 }
 
 /**
- * CTA de agenda (brief §4.5). Mientras SCHEDULING_URL esté vacío no inventamos
- * un destino: el botón se muestra deshabilitado y se explica por qué.
+ * CTA principal del sitio (mail del cliente: "CTA principal agendar").
+ * Mientras SCHEDULING_URL esté vacío no se inventa un destino: el botón se
+ * deshabilita y explica por qué.
  */
 export function ScheduleButton({ variant, label, className }: ScheduleButtonProps) {
   const { copy } = useLanguage();
@@ -17,7 +18,7 @@ export function ScheduleButton({ variant, label, className }: ScheduleButtonProp
 
   if (!SCHEDULING_URL) {
     return (
-      <button type="button" className={classes} disabled title={copy.contact.schedulingPending}>
+      <button type="button" className={classes} disabled title={copy.cta.schedulingPending}>
         {label}
       </button>
     );

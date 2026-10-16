@@ -12,7 +12,7 @@
  * en Oro o Porcelana; sobre fondo claro, en Tinta u Oro.
  */
 
-const GOLD = '#c6a15b';
+const GOLD = '#c0a365';
 const STEEL = '#5c6b7c';
 
 interface IconProps {

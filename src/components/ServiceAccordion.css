@@ -1,0 +1,145 @@
+.service {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  padding: var(--space-3);
+  scroll-margin-top: 88px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+/* Hover = solo énfasis visual; la información ya está visible. */
+.service:hover,
+.service.is-open {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-raised);
+}
+
+/* Anuncios: servicio a impulsar, peso visual alto (brief web). */
+.service--featured {
+  background: var(--color-ink);
+  color: var(--color-porcelain);
+  border-color: var(--color-ink);
+}
+
+.service__heading {
+  margin: 0;
+  font-size: var(--text-h3);
+}
+
+.service__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.service__toggle:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.service__name {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.service__badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.service__chevron {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 160ms ease;
+}
+
+.service.is-open .service__chevron {
+  transform: rotate(-135deg);
+}
+
+.service__summary {
+  margin-top: var(--space-1);
+  opacity: 0.85;
+}
+
+.service__panel {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.service__panel[hidden] {
+  display: none;
+}
+
+.service--featured .service__panel {
+  border-top-color: rgba(237, 239, 243, 0.2);
+}
+
+.service--featured .eyebrow {
+  color: var(--color-gold);
+}
+
+.service--featured .button--secondary {
+  border-color: var(--color-porcelain);
+  color: var(--color-porcelain);
+}
+
+.service__panel .eyebrow {
+  margin: 0;
+}
+
+.service__benefits {
+  margin: 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 4px;
+}
+
+.service__conditions {
+  font-size: 0.9375rem;
+  opacity: 0.85;
+}
+
+.service__addon {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: start;
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-card);
+  background: rgba(192, 163, 101, 0.08);
+}
+
+.service__addon-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}

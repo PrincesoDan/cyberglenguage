@@ -14,50 +14,40 @@
   min-height: 72px;
 }
 
-/* §02 — Logo horizontal: isotipo + wordmark en Newsreader. */
 .header__logo {
   display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--color-porcelain);
-}
-
-.header__logo:hover {
-  text-decoration: none;
-}
-
-/* El isotipo hereda el color del enlace: el chevron acompaña al wordmark en el
-   hover, mientras el cursor se mantiene en Oro. */
-.header__logo-mark {
-  display: block;
   flex-shrink: 0;
 }
 
-.header__wordmark {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-}
-
-.header__logo:hover .header__wordmark {
-  color: var(--color-gold);
+.header__logo img {
+  display: block;
+  height: 40px;
+  width: auto;
 }
 
 .header__nav {
   display: flex;
+  align-items: center;
   gap: var(--space-3);
-  margin-inline: auto;
+  margin-left: auto;
 }
 
-.header__nav a {
+.header__links {
+  display: flex;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header__links a {
   color: var(--color-porcelain);
   font-size: 0.9375rem;
   opacity: 0.85;
 }
 
-.header__nav a:hover {
+.header__links a:hover,
+.header__links a[aria-current='page'] {
   color: var(--color-gold);
   opacity: 1;
   text-decoration: none;
@@ -67,39 +57,115 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  margin-left: auto;
 }
 
 .header__lang {
-  display: inline-flex;
-  gap: 4px;
-  background: none;
-  border: none;
-  padding: var(--space-1);
-  cursor: pointer;
   font-family: var(--font-mono);
   font-size: var(--text-label);
-  letter-spacing: 0.08em;
-  color: rgba(237, 239, 243, 0.55);
-}
-
-.header__lang .is-active {
-  color: var(--color-gold);
+  letter-spacing: 0.12em;
+  color: var(--color-porcelain);
+  padding: var(--space-1);
 }
 
 .header__cta {
-  padding: 10px var(--space-2);
-  font-size: 0.875rem;
+  padding-block: 10px;
 }
 
-@media (max-width: 860px) {
+/* Botón hamburguesa: solo visible en móvil. */
+.header__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-porcelain);
+}
+
+.header__toggle-bars,
+.header__toggle-bars::before,
+.header__toggle-bars::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin-inline: auto;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.header__toggle-bars {
+  position: relative;
+}
+
+.header__toggle-bars::before,
+.header__toggle-bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.header__toggle-bars::before {
+  top: -7px;
+}
+
+.header__toggle-bars::after {
+  top: 7px;
+}
+
+@media (max-width: 960px) {
+  .header__toggle {
+    display: block;
+  }
+
+  /* Logo + Agendar + hamburguesa tienen que caber en 320px sin desbordar. */
+  .header__inner {
+    gap: var(--space-2);
+  }
+
+  .header__logo img {
+    height: 32px;
+  }
+
+  .header__cta {
+    margin-left: auto;
+    padding-inline: var(--space-2);
+  }
+
   .header__nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--content-gutter) var(--space-4);
+    background: var(--color-ink);
+    border-bottom: 1px solid rgba(237, 239, 243, 0.12);
+  }
+
+  .header__nav.is-open {
+    display: flex;
+  }
+
+  .header__links {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .header__links a {
+    font-size: 1.125rem;
+  }
+
+  .header__actions {
+    justify-content: space-between;
   }
 }
 
-@media (max-width: 520px) {
-  .header__cta {
-    display: none;
+/* Teléfonos de 320px: el logo cede espacio antes de que el menú se salga. */
+@media (max-width: 400px) {
+  .header__logo img {
+    height: 26px;
   }
 }

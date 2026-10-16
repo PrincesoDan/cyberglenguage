@@ -12,11 +12,11 @@ export function Method() {
   return (
     <section className="section" id="metodo">
       <div className="container">
-        <p className="eyebrow">{copy.method.eyebrow}</p>
-        <h2>{copy.method.title}</h2>
+        <p className="eyebrow">{copy.geo.method.eyebrow}</p>
+        <h2>{copy.geo.method.title}</h2>
 
         <ol className="method__steps">
-          {copy.method.steps.map((step, index) => (
+          {copy.geo.method.steps.map((step, index) => (
             <li className="method__step" key={step.title}>
               <span className="method__number">{String(index + 1).padStart(2, '0')}</span>
               <h3>{step.title}</h3>

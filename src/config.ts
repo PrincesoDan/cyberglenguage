@@ -1,27 +1,31 @@
 /**
- * Configuración pendiente de datos reales.
- * El brief §12 y §08 dejan estos puntos abiertos; hasta que se definan,
- * la UI degrada de forma explícita en vez de apuntar a un link inventado.
+ * Datos de contacto y URLs del sitio (spec §4). Los valores salen del brief
+ * web, "Datos clave"; la agenda es la de Cal.com que entregó el cliente.
  */
 
-/** Dominio definitivo de la marca. */
-export const SITE_URL = 'https://cyberlanguage.io';
+export const SITE_URL = 'https://cyberpositioning.com';
 
-/** TODO: URL de Calendly o Cal.com (brief de desarrollo §4.5). Vacío = CTA deshabilitado. */
-export const SCHEDULING_URL = '';
+/** Dominio de la línea GEO. Redirige a /geo desde el host (vercel.json). */
+export const GEO_DOMAIN = 'https://cyberlanguage.io';
 
-/** TODO: confirmar el buzón real del dominio (brief §08). Vacío = no se muestra. */
-export const CONTACT_EMAIL = '';
+/** Vacío = los CTA de agenda se deshabilitan (ScheduleButton). */
+export const SCHEDULING_URL = 'https://cal.com/princesodan/ulab-consulting';
+
+/** Formato wa.me: solo dígitos, con código de país. */
+export const WHATSAPP_NUMBER = '17879559917';
+
+export const PHONE_TEL = '+17879559917';
+export const PHONE_DISPLAY = '+1 (787) 955-9917';
+
+export const CONTACT_EMAIL = 'admin@cyberpositioning.com';
+
+export const SOCIAL = {
+  instagram: 'https://www.instagram.com/cyberpositioning/',
+  facebook: 'https://www.facebook.com/profile.php?id=61594919531733',
+} as const;
 
 /**
- * Política de privacidad (brief §4.4 y §8: requisito legal al capturar emails).
- * Es una ruta interna del propio sitio, servida por <PrivacyPolicy />.
- */
-export const PRIVACY_POLICY_URL = '/privacidad';
-
-/**
- * TODO: identificación del responsable del tratamiento — nombre completo o
- * razón social y RUT (Ley 21.719). Todavía no hay sociedad constituida.
- * Vacío = la política muestra el aviso de dato pendiente.
+ * TODO: razón social de Cyber Positioning para la política de privacidad.
+ * Vacío = la política lo muestra como dato pendiente.
  */
 export const DATA_CONTROLLER = '';

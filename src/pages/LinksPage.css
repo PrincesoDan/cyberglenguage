@@ -1,0 +1,46 @@
+.links-page {
+  min-height: 100vh;
+  background: var(--color-ink);
+  color: var(--color-porcelain);
+  padding: var(--space-6) var(--content-gutter);
+}
+
+.links-page__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 420px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.links-page__logo {
+  width: 200px;
+  height: auto;
+}
+
+.links-page__tagline {
+  opacity: 0.85;
+}
+
+.links-page__buttons {
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.links-page__buttons .button {
+  width: 100%;
+  padding-block: 16px;
+}
+
+.links-page .button--secondary {
+  border-color: var(--color-porcelain);
+  color: var(--color-porcelain);
+}
+
+.links-page .button--secondary:hover {
+  background: var(--color-porcelain);
+  color: var(--color-ink);
+}

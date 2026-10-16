@@ -1,0 +1,25 @@
+.whatsapp-fab {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-raised);
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.whatsapp-fab:hover {
+  background: var(--color-gold-hover);
+  transform: translateY(-2px);
+}
+
+.whatsapp-fab:focus-visible {
+  outline: 3px solid var(--color-porcelain);
+  outline-offset: 3px;
+}

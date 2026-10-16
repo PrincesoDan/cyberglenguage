@@ -16,12 +16,12 @@ export function Problem() {
     <section className="section section--light" id="problema">
       <div className="container">
         <PointMark size={34} className="problem__mark" />
-        <p className="eyebrow">{copy.problem.eyebrow}</p>
-        <h2>{copy.problem.title}</h2>
-        <p className="lead problem__positioning">{copy.problem.positioning}</p>
+        <p className="eyebrow">{copy.geo.problem.eyebrow}</p>
+        <h2>{copy.geo.problem.title}</h2>
+        <p className="lead problem__positioning">{copy.geo.problem.positioning}</p>
 
         <div className="problem__grid">
-          {copy.problem.messages.map((message) => (
+          {copy.geo.problem.messages.map((message) => (
             <article className="card problem__card" key={message.title}>
               <h3>{message.title}</h3>
               <p className="lead">{message.body}</p>

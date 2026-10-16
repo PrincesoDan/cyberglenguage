@@ -1,0 +1,17 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "cyberlanguage.io" }],
+      "destination": "https://cyberpositioning.com/geo",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.cyberlanguage.io" }],
+      "destination": "https://cyberpositioning.com/geo",
+      "permanent": true
+    }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
