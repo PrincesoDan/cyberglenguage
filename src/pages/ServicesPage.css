@@ -1,0 +1,9 @@
+.services-page__list {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 860px;
+}
+
+.services-page__group-title {
+  margin-bottom: var(--space-1);
+}

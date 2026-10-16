@@ -1,3 +1,4 @@
+import type { ServiceId } from '../data/services';
 import type { NavPageId, RoutePage } from '../routes';
 
 /** Bloque de mensaje con titular y desarrollo. */
@@ -110,6 +111,35 @@ export interface PrivacyCopy {
   backToSite: string;
 }
 
+export interface ServiceCopy {
+  name: string;
+  /** Descripción corta: texto del "recuadro hover" del brief de marca. */
+  summary: string;
+  benefits: string[];
+  conditions: string | null;
+}
+
+export interface ServicesCopy {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  recommended: string;
+  individualTitle: string;
+  benefitsLabel: string;
+  conditionsLabel: string;
+  wantThis: string;
+  addOn: {
+    title: string;
+    body: string;
+    cta: string;
+  };
+  items: Record<ServiceId, ServiceCopy>;
+  closing: {
+    title: string;
+    body: string;
+  };
+}
+
 /**
  * Forma del copy del sitio. `es/index.ts` y `en/index.ts` la implementan, así
  * que agregar una clave obliga a traducirla en ambos idiomas.
@@ -123,6 +153,7 @@ export interface Copy {
   /** <title> por página (spec §7). */
   meta: Record<RoutePage, string>;
   notFound: NotFoundCopy;
+  services: ServicesCopy;
   geo: GeoCopy;
   privacy: PrivacyCopy;
 }
