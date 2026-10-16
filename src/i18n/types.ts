@@ -215,6 +215,20 @@ export interface AboutCopy {
   };
 }
 
+export interface ContactCopy {
+  eyebrow: string;
+  title: string;
+  body: string;
+  scheduleTitle: string;
+  scheduleBody: string;
+  iframeTitle: string;
+  openInNewTab: string;
+  otherTitle: string;
+  emailLabel: string;
+  hoursLabel: string;
+  followUs: string;
+}
+
 /**
  * Forma del copy del sitio. `es/index.ts` y `en/index.ts` la implementan, así
  * que agregar una clave obliga a traducirla en ambos idiomas.
@@ -232,6 +246,7 @@ export interface Copy {
   home: HomeCopy;
   work: WorkCopy;
   about: AboutCopy;
+  contact: ContactCopy;
   geo: GeoCopy;
   privacy: PrivacyCopy;
 }
