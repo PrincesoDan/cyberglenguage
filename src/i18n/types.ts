@@ -140,6 +140,46 @@ export interface ServicesCopy {
   };
 }
 
+export interface HomeCopy {
+  hero: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  pains: {
+    title: string;
+    items: string[];
+    closing: string;
+  };
+  services: {
+    eyebrow: string;
+    title: string;
+    cards: Record<ServiceId, string>;
+    cardCta: string;
+  };
+  geo: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    cta: string;
+  };
+  why: {
+    eyebrow: string;
+    title: string;
+    items: CopyBlock[];
+  };
+  work: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    cta: string;
+  };
+  closing: {
+    title: string;
+    body: string;
+  };
+}
+
 /**
  * Forma del copy del sitio. `es/index.ts` y `en/index.ts` la implementan, así
  * que agregar una clave obliga a traducirla en ambos idiomas.
@@ -154,6 +194,7 @@ export interface Copy {
   meta: Record<RoutePage, string>;
   notFound: NotFoundCopy;
   services: ServicesCopy;
+  home: HomeCopy;
   geo: GeoCopy;
   privacy: PrivacyCopy;
 }
