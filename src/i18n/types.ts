@@ -229,6 +229,13 @@ export interface ContactCopy {
   followUs: string;
 }
 
+export interface LinksCopy {
+  tagline: string;
+  schedule: string;
+  services: string;
+  website: string;
+}
+
 /**
  * Forma del copy del sitio. `es/index.ts` y `en/index.ts` la implementan, así
  * que agregar una clave obliga a traducirla en ambos idiomas.
@@ -247,6 +254,7 @@ export interface Copy {
   work: WorkCopy;
   about: AboutCopy;
   contact: ContactCopy;
+  links: LinksCopy;
   geo: GeoCopy;
   privacy: PrivacyCopy;
 }
