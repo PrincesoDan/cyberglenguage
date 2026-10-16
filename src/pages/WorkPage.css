@@ -1,0 +1,61 @@
+.work__lead {
+  margin-block: var(--space-2) var(--space-4);
+  max-width: 60ch;
+}
+
+/* Carrete deslizable (brief web): scroll horizontal dentro del bloque, nunca de la página. */
+.work-reel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 30%);
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0 0 var(--space-2);
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.work-reel__item {
+  scroll-snap-align: start;
+}
+
+.work-reel__item figure {
+  margin: 0;
+}
+
+.work-reel__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+}
+
+.work-reel__item figcaption {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-1);
+  font-size: 0.9375rem;
+}
+
+.work-reel__item--pending {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-card);
+  background: var(--color-porcelain);
+}
+
+.work-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  .work-reel {
+    grid-auto-columns: 78%;
+  }
+}

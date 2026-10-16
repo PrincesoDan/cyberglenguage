@@ -180,6 +180,19 @@ export interface HomeCopy {
   };
 }
 
+export interface WorkCopy {
+  eyebrow: string;
+  title: string;
+  productionTitle: string;
+  productionBody: string;
+  pendingPiece: string;
+  resultsTitle: string;
+  resultsBody: string;
+  challengeLabel: string;
+  whatWeDidLabel: string;
+  resultLabel: string;
+}
+
 /**
  * Forma del copy del sitio. `es/index.ts` y `en/index.ts` la implementan, así
  * que agregar una clave obliga a traducirla en ambos idiomas.
@@ -195,6 +208,7 @@ export interface Copy {
   notFound: NotFoundCopy;
   services: ServicesCopy;
   home: HomeCopy;
+  work: WorkCopy;
   geo: GeoCopy;
   privacy: PrivacyCopy;
 }
