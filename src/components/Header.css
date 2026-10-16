@@ -74,7 +74,6 @@
 /* Botón hamburguesa: solo visible en móvil. */
 .header__toggle {
   display: none;
-  margin-left: auto;
   width: 44px;
   height: 44px;
   background: none;
@@ -118,6 +117,20 @@
     display: block;
   }
 
+  /* Logo + Agendar + hamburguesa tienen que caber en 320px sin desbordar. */
+  .header__inner {
+    gap: var(--space-2);
+  }
+
+  .header__logo img {
+    height: 32px;
+  }
+
+  .header__cta {
+    margin-left: auto;
+    padding-inline: var(--space-2);
+  }
+
   .header__nav {
     display: none;
     position: absolute;
@@ -147,5 +160,12 @@
 
   .header__actions {
     justify-content: space-between;
+  }
+}
+
+/* Teléfonos de 320px: el logo cede espacio antes de que el menú se salga. */
+@media (max-width: 400px) {
+  .header__logo img {
+    height: 26px;
   }
 }

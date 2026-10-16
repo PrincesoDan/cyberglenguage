@@ -30,17 +30,6 @@ export function Header() {
           <img src="/brand/logo-horizontal.png" alt={copy.site.brandName} height={40} />
         </a>
 
-        <button
-          type="button"
-          className="header__toggle"
-          aria-expanded={menuOpen}
-          aria-controls="primary-nav"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="visually-hidden">{menuOpen ? copy.nav.menuClose : copy.nav.menuOpen}</span>
-          <span className="header__toggle-bars" aria-hidden="true" />
-        </button>
-
         <nav id="primary-nav" className={`header__nav${menuOpen ? ' is-open' : ''}`} aria-label={copy.nav.primaryLabel}>
           <ul className="header__links">
             {NAV_PAGES.map((page) => (
@@ -63,9 +52,22 @@ export function Header() {
             >
               {otherLanguage.toUpperCase()}
             </a>
-            <ScheduleButton variant="primary" label={copy.nav.scheduleCta} className="header__cta" />
           </div>
         </nav>
+
+        {/* Fuera del <nav>: el CTA principal (Agendar) sigue visible en móvil con el menú cerrado. */}
+        <ScheduleButton variant="primary" label={copy.nav.scheduleCta} className="header__cta" />
+
+        <button
+          type="button"
+          className="header__toggle"
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="visually-hidden">{menuOpen ? copy.nav.menuClose : copy.nav.menuOpen}</span>
+          <span className="header__toggle-bars" aria-hidden="true" />
+        </button>
       </div>
     </header>
   );
