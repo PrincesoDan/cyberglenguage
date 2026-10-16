@@ -17,9 +17,9 @@ export function StrategyBand() {
       <div className="container strategy__inner">
         <div className="strategy__statement">
           <QuoteMark size={38} className="strategy__quote" />
-          <h2>{copy.strategy.title}</h2>
+          <h2>{copy.geo.strategy.title}</h2>
         </div>
-        <p className="lead">{copy.strategy.body}</p>
+        <p className="lead">{copy.geo.strategy.body}</p>
       </div>
     </section>
   );

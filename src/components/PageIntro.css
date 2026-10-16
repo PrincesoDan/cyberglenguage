@@ -1,0 +1,37 @@
+.page-intro {
+  padding-block: clamp(3rem, 2rem + 4vw, 5rem);
+}
+
+.page-intro__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Los iconos traen el fondo claro horneado: se presentan como ficha redonda. */
+.page-intro__icon {
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.page-intro__title {
+  max-width: 22ch;
+}
+
+.page-intro__lead {
+  margin-top: var(--space-2);
+  max-width: 60ch;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .page-intro__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-intro__icon {
+    width: 72px;
+    height: 72px;
+  }
+}
