@@ -106,7 +106,8 @@ export interface PrivacyCopy {
   intro: string;
   lastUpdated: string;
   controllerPending: string;
-  contactPending: string;
+  /** Aviso visible: borrador sin revisión legal. */
+  draftNotice: string;
   languageNote: string;
   sections: PolicySection[];
   backToSite: string;

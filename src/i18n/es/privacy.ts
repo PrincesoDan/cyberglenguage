@@ -1,124 +1,93 @@
 import type { PrivacyCopy } from '../types';
 
-/** Temporal: política anterior trasladada literal. La reescribe Task 12 (spec §6, Privacidad). */
+/**
+ * Política para una agencia en Puerto Rico (EE.UU.), spec §6. El sitio solo
+ * trata datos vía Cal.com, WhatsApp y correo: no hay formulario, analítica
+ * ni cookies propias. Borrador: requiere revisión legal antes de publicar.
+ */
 export const privacy: PrivacyCopy = {
   eyebrow: 'Legal',
   title: 'Política de privacidad',
   intro:
-    'Esto explica qué datos te pedimos, para qué los usamos y qué puedes exigirnos. Cada sección parte con un resumen en una línea; abajo está el detalle.',
-  lastUpdated: 'Última actualización: 4 de septiembre de 2026',
-  controllerPending:
-    'Pendiente: identificación del responsable (nombre completo o razón social y RUT). Debe completarse antes de publicar el sitio con captura de datos activa.',
-  contactPending:
-    'Pendiente: correo de contacto para ejercer derechos. Sin él, esta política no ofrece un canal válido.',
-  languageNote:
-    'Esta es la versión oficial. La traducción al inglés es de cortesía; ante cualquier diferencia, prevalece el texto en español.',
-  backToSite: 'Volver al sitio',
-
+    'Esta política explica qué datos personales recibimos cuando nos contactas o agendas una llamada desde este sitio, para qué los usamos y qué puedes hacer con ellos.',
+  lastUpdated: 'Última actualización: 16 de octubre de 2026',
+  controllerPending: 'Dato pendiente: falta la razón social de Cyber Positioning como responsable de los datos.',
+  draftNotice: 'Borrador pendiente de revisión legal. No publicar como versión final sin esa revisión.',
+  languageNote: 'Esta política existe en español e inglés. Si hay diferencias, prevalece la versión en español.',
   sections: [
     {
-      title: '1. Quién trata tus datos',
-      summary: 'Somos nosotros, no un tercero, y respondemos por lo que pase con ellos.',
+      title: '1. Quiénes somos',
+      summary: 'Cyber Positioning es una agencia de marketing digital en Puerto Rico y es responsable de tus datos.',
       body: [
-        'El responsable del tratamiento de tus datos personales es la persona natural que opera CyberLanguage, consultoría de visibilidad en IA (GEO / AEO).',
-        'Responsable de que estos datos se traten conforme a la ley, y a quien puedes dirigir cualquier consulta o reclamo, es esa misma persona a través del canal de contacto indicado en la sección 7.',
+        'Cyber Positioning opera los sitios cyberpositioning.com y cyberlanguage.io (su línea de visibilidad en IA). Para cualquier consulta sobre esta política puedes escribirnos a admin@cyberpositioning.com.',
       ],
     },
     {
-      title: '2. Qué datos recogemos',
-      summary: 'Los que tú escribes en el formulario, y los que tu navegador deja al visitar el sitio.',
+      title: '2. Qué datos recibimos',
+      summary: 'Solo los que tú nos das al agendar, escribirnos por WhatsApp o enviarnos un correo.',
       body: [
-        'Datos que nos entregas directamente: tu nombre, tu correo electrónico, el nombre de tu organización y la dirección del sitio web que quieres analizar. Los recogemos solo cuando completas el formulario de auditoría.',
-        'Datos que se generan por tu visita: dirección IP, tipo de navegador y dispositivo, páginas que visitas y tiempo de permanencia. Estos se recogen mediante herramientas de analítica y solo si aceptas las cookies no esenciales.',
-        'No pedimos ni queremos datos sensibles. No solicitamos RUT, datos de salud, situación socioeconómica, afiliación política ni ningún otro dato que la ley califica como sensible. Por favor no los incluyas en los campos del formulario.',
+        'Al agendar una llamada: tu nombre, tu correo electrónico, tu teléfono si decides darlo, y lo que escribas en las notas de la reserva.',
+        'Al escribirnos por WhatsApp: tu número de teléfono, tu nombre de perfil y el contenido de los mensajes.',
+        'Al escribirnos por correo: tu dirección de correo y el contenido del mensaje.',
+        'Este sitio no tiene formularios propios, no usa herramientas de analítica y no instala cookies propias.',
       ],
     },
     {
       title: '3. Para qué los usamos',
-      summary: 'Para tres cosas distintas, y cada una necesita tu permiso por separado.',
+      summary: 'Para responderte, hacer la llamada que agendaste y preparar una propuesta si la pides.',
       body: [
-        'Entregarte la auditoría que pediste. Usamos la URL para analizar tu sitio y tu correo para enviarte el reporte. Sin este dato no podemos prestarte el servicio, así que este consentimiento es obligatorio para usar la herramienta.',
-        'Contactarte para conversar sobre una consultoría. Usamos tu nombre, correo y organización para hacer seguimiento comercial de tu solicitud.',
-        'Enviarte contenidos por correo. Si lo autorizas marcando la casilla correspondiente, te enviamos una secuencia de correos con recomendaciones y contenidos sobre visibilidad en IA. Esta autorización es opcional, va separada de las anteriores, y no condiciona la entrega del reporte: puedes recibir tu auditoría sin aceptarla.',
-        'Medir y mejorar el sitio. Usamos datos de navegación agregados para entender qué funciona y qué no. Esto ocurre solo si aceptas las cookies de analítica.',
-        'No tomamos decisiones automatizadas que produzcan efectos jurídicos sobre ti, ni elaboramos perfiles con tus datos más allá de lo descrito acá.',
+        'Usamos tus datos para confirmar y realizar la llamada, responder tus consultas y, si nos lo pides, preparar una propuesta de servicios.',
+        'No vendemos tus datos ni los compartimos con terceros para que te envíen publicidad. No te enviaremos comunicaciones de marketing sin tu consentimiento.',
       ],
     },
     {
-      title: '4. Con quién los compartimos',
-      summary: 'Con los proveedores que necesitamos para operar. No los vendemos a nadie.',
+      title: '4. Proveedores que procesan tus datos',
+      summary: 'Usamos servicios externos para la agenda, la mensajería, el correo y el alojamiento del sitio.',
       body: [
-        'No vendemos, arrendamos ni cedemos tus datos personales a terceros con fines comerciales.',
-        'Sí los compartimos con proveedores que nos prestan servicios y que solo pueden tratarlos siguiendo nuestras instrucciones: el servicio de alojamiento del sitio, la plataforma de envío de correos, la herramienta de analítica y la plataforma de agendamiento de reuniones.',
-        'Transferencia internacional: varios de estos proveedores operan servidores fuera de Chile, principalmente en Estados Unidos y la Unión Europea. Esto significa que tus datos pueden almacenarse o procesarse en el extranjero. Al usar el formulario aceptas esa transferencia; exigimos a estos proveedores garantías contractuales de protección equivalentes a las que aplicamos nosotros.',
-        'También podemos entregar tus datos cuando una autoridad competente lo requiera conforme a la ley.',
+        'Cal.com, para la agenda de llamadas. Las reservas se procesan según su propia política de privacidad.',
+        'WhatsApp (Meta Platforms), para la mensajería.',
+        'Nuestro proveedor de correo electrónico, para recibir y responder correos.',
+        'El proveedor de alojamiento del sitio, que puede registrar datos técnicos de la visita (como la dirección IP) por seguridad y funcionamiento.',
       ],
     },
     {
-      title: '5. Cuánto tiempo los guardamos',
-      summary: 'El tiempo necesario para cada finalidad, y después los eliminamos.',
+      title: '5. Cookies',
+      summary: 'Nosotros no instalamos cookies. La agenda de Cal.com puede usar las suyas.',
       body: [
-        'Datos de la auditoría (URL, puntaje y resultados): hasta 12 meses desde el análisis, para poder compararlos si vuelves a analizar tu sitio.',
-        'Datos de contacto para seguimiento comercial: hasta 24 meses desde tu último contacto con nosotros.',
-        'Datos para la secuencia de correos: mientras no revoques tu autorización. Cada correo incluye un enlace para darte de baja, y al hacerlo dejamos de usarlos para esa finalidad.',
-        'Datos de analítica: hasta 14 meses, en formato agregado.',
-        'Cumplidos estos plazos eliminamos los datos o los anonimizamos de forma irreversible, salvo que una obligación legal nos exija conservarlos más tiempo.',
+        'Este sitio no usa cookies propias ni de analítica. La agenda incrustada en la página de Contacto la provee Cal.com, que puede usar cookies necesarias para su funcionamiento. Los enlaces a Instagram y Facebook te llevan a esas plataformas, que aplican sus propias políticas.',
       ],
     },
     {
-      title: '6. Cookies',
-      summary: 'Las imprescindibles van siempre; las de medición, solo si las aceptas.',
+      title: '6. Cuánto tiempo guardamos tus datos',
+      summary: 'Mientras sea útil para atenderte, y luego los eliminamos.',
       body: [
-        'Cookies esenciales: necesarias para que el sitio funcione, por ejemplo para recordar el idioma que elegiste. No requieren tu consentimiento porque sin ellas el sitio no opera.',
-        'Cookies de analítica: nos dicen cómo se usa el sitio. Requieren tu consentimiento previo y puedes rechazarlas sin perder ninguna funcionalidad.',
-        'Puedes cambiar tu decisión en cualquier momento desde la configuración de cookies del sitio, o borrar las cookies ya instaladas desde tu navegador.',
+        'Conservamos tus datos mientras mantengamos una conversación o relación comercial contigo y, después, solo el tiempo necesario para cumplir obligaciones legales o resolver reclamos. Si no llegamos a trabajar juntos, eliminamos los datos de la reserva y la conversación cuando dejan de ser necesarios.',
       ],
     },
     {
       title: '7. Tus derechos',
-      summary: 'Puedes ver, corregir, borrar y llevarte tus datos cuando quieras. Es gratis.',
+      summary: 'Puedes pedirnos ver, corregir o borrar tus datos.',
       body: [
-        'Acceso: pedirnos qué datos tuyos tenemos y qué hacemos con ellos.',
-        'Rectificación: corregirlos si están equivocados o incompletos.',
-        'Supresión: pedir que los eliminemos, salvo que debamos conservarlos por una obligación legal.',
-        'Oposición: pedir que dejemos de tratarlos para una finalidad determinada.',
-        'Portabilidad: recibir tus datos en un formato estructurado y de uso común, o pedirnos que se los entreguemos a otro responsable.',
-        'Bloqueo: pedir la suspensión temporal del tratamiento mientras se resuelve una solicitud tuya.',
-        'Ejercer cualquiera de estos derechos es gratuito. Escríbenos al correo de contacto indicado más abajo y te respondemos dentro del plazo legal. Si tu solicitud no queda clara podemos pedirte que la precises, y podemos requerir verificar tu identidad antes de responder.',
-        'Revocar tu consentimiento es igual de fácil que darlo: puedes hacerlo en cualquier momento, y eso no afecta la validez del tratamiento hecho antes de la revocación.',
+        'Puedes solicitar acceso a los datos que tenemos sobre ti, su corrección o su eliminación escribiendo a admin@cyberpositioning.com. Responderemos dentro de un plazo razonable y, como máximo, en 30 días.',
       ],
     },
     {
-      title: '8. Seguridad y brechas',
-      summary: 'Protegemos tus datos, y si algo falla te lo decimos.',
+      title: '8. Seguridad',
+      summary: 'Protegemos tus datos y te avisaremos si hay un incidente que te afecte.',
       body: [
-        'Aplicamos medidas técnicas y organizativas razonables para proteger tus datos: cifrado en tránsito, acceso restringido a quien lo necesita y proveedores que cumplen estándares de seguridad reconocidos.',
-        'Ninguna medida es infalible. Si ocurre una vulneración de seguridad que afecte tus datos personales, la notificaremos a la Agencia de Protección de Datos Personales sin dilaciones indebidas y, cuando la brecha implique un riesgo elevado para tus derechos, te lo comunicaremos también a ti directamente.',
+        'Aplicamos medidas razonables para proteger tus datos. Si ocurre un incidente de seguridad que afecte tu información personal, te notificaremos según exige la ley aplicable, incluida la Ley Núm. 111 de 2005 de Puerto Rico.',
       ],
     },
     {
       title: '9. Menores de edad',
-      summary: 'Este servicio es para adultos.',
-      body: [
-        'CyberLanguage está dirigido a dueños de negocios y responsables de sitios web mayores de 18 años. No recogemos deliberadamente datos de menores de edad.',
-        'Si detectamos que hemos recibido datos de un menor sin la autorización que corresponde, los eliminaremos. Si crees que esto ocurrió, escríbenos y lo resolvemos.',
-      ],
+      summary: 'Este sitio no está dirigido a menores de 13 años.',
+      body: ['No recopilamos a sabiendas datos de menores de 13 años. Si crees que un menor nos dio sus datos, escríbenos y los eliminaremos.'],
     },
     {
       title: '10. Cambios a esta política',
-      summary: 'Si cambia algo relevante, te avisamos antes de aplicarlo.',
-      body: [
-        'Podemos actualizar esta política cuando cambien nuestros servicios o la normativa aplicable. La fecha de última actualización siempre está al comienzo del documento.',
-        'Si el cambio afecta de forma sustancial cómo tratamos tus datos, te lo comunicaremos por correo antes de que entre en vigor, y cuando la ley lo exija te pediremos un nuevo consentimiento.',
-      ],
-    },
-    {
-      title: '11. Reclamos',
-      summary: 'Si crees que hicimos algo mal, puedes reclamarnos a nosotros o a la autoridad.',
-      body: [
-        'Escríbenos primero: la mayoría de los problemas se resuelven directo y rápido.',
-        'Si no quedas conforme con nuestra respuesta, o si no te respondemos, puedes presentar un reclamo ante la Agencia de Protección de Datos Personales, el organismo encargado de fiscalizar el cumplimiento de la Ley 21.719 en Chile.',
-      ],
+      summary: 'Si la cambiamos, publicaremos la nueva versión aquí con su fecha.',
+      body: ['Podemos actualizar esta política. La fecha de la última actualización aparece al inicio de esta página.'],
     },
   ],
+  backToSite: 'Volver al inicio',
 };

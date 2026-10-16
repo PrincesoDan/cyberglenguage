@@ -6,16 +6,12 @@ import { pathFor } from '../routes';
 import './PrivacyPolicy.css';
 
 /**
- * Política de privacidad (brief §4.4 y §8: requisito legal al capturar emails).
+ * Política para Puerto Rico/EE.UU. (spec §6). Borrador sin revisión legal: se
+ * muestra el aviso en la propia página.
  *
- * El texto vive en `i18n/es.ts` y `i18n/en.ts`; acá solo va la estructura.
- * Cada sección se pinta con su resumen en lenguaje simple destacado sobre el
- * detalle — el brief §3 exige lenguaje claro, y una política en legalés
- * contradice la voz de la marca.
- *
- * Los dos datos que todavía no existen (responsable y buzón de contacto) se
- * muestran como aviso visible en vez de omitirse: quien publique el sitio tiene
- * que tropezarse con ellos, no descubrirlos cuando alguien reclame.
+ * El texto vive en `i18n/{es,en}/privacy.ts`; acá solo va la estructura. Cada
+ * sección destaca su resumen en lenguaje simple sobre el detalle (voz de marca:
+ * clara, sin jerga). Los datos que faltan se muestran como aviso visible.
  */
 export function PrivacyPolicy() {
   const { copy, language } = useLanguage();
@@ -34,6 +30,7 @@ export function PrivacyPolicy() {
           </header>
 
           {!DATA_CONTROLLER && <PendingNote>{privacy.controllerPending}</PendingNote>}
+          <PendingNote>{privacy.draftNotice}</PendingNote>
 
           {privacy.sections.map((section) => (
             <section className="policy__section" key={section.title}>
@@ -48,13 +45,9 @@ export function PrivacyPolicy() {
           ))}
 
           <footer className="policy__footer">
-            {CONTACT_EMAIL ? (
-              <p className="policy__contact">
-                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-              </p>
-            ) : (
-              <PendingNote>{privacy.contactPending}</PendingNote>
-            )}
+            <p className="policy__contact">
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            </p>
 
             <a className="button button--secondary" href={pathFor('home', language)}>
               {privacy.backToSite}
