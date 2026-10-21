@@ -23,3 +23,10 @@
   outline: 3px solid var(--color-porcelain);
   outline-offset: 3px;
 }
+
+/* En móvil sube por encima de la barra inferior (MobileTabBar). */
+@media (max-width: 960px) {
+  .whatsapp-fab {
+    bottom: calc(var(--tabbar-height) + 16px + env(safe-area-inset-bottom));
+  }
+}

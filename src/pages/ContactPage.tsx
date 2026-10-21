@@ -4,12 +4,15 @@ import { CallButton } from '../components/CallButton';
 import { PageIntro } from '../components/PageIntro';
 import { PendingNote } from '../components/PendingNote';
 import { SiteLayout } from '../components/SiteLayout';
-import { FacebookIcon, InstagramIcon } from '../components/SocialIcons';
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '../components/SocialIcons';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { buildWhatsAppUrl } from '../lib/whatsapp';
 import './ContactPage.css';
 
 /**
- * Contacto en orden de prioridad (spec §6): agenda embebida, WhatsApp y
+ * Contacto en orden de prioridad (spec §6): botones tipo link tree (WhatsApp,
+ * Instagram, Facebook) para compartir /contacto como único link, agenda
+ * embebida, WhatsApp y
  * Llamar, y después correo, horario y redes. Sin formulario: quedó fuera de
  * esta entrega.
  */
@@ -22,6 +25,26 @@ export function ContactPage() {
       <PageIntro eyebrow={contact.eyebrow} title={contact.title} lead={contact.body} icon="/brand/icons/contacto.png" />
 
       <section className="section">
+        <div className="container contact-page__links">
+          <h2 className="contact-page__links-title">{contact.linksTitle}</h2>
+          <div className="contact-page__links-buttons">
+            <a
+              className="button button--primary"
+              href={buildWhatsAppUrl(copy.whatsapp.genericMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon /> WhatsApp
+            </a>
+            <a className="button button--secondary" href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer">
+              <InstagramIcon /> Instagram
+            </a>
+            <a className="button button--secondary" href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer">
+              <FacebookIcon /> Facebook
+            </a>
+          </div>
+        </div>
+
         <div className="container contact-page__schedule">
           <h2>{contact.scheduleTitle}</h2>
           <p className="lead">{contact.scheduleBody}</p>

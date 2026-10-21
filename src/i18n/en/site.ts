@@ -22,8 +22,14 @@ export const nav: NavCopy = {
   },
   scheduleCta: 'Book a call',
   languageSwitchLabel: 'Ver esta página en español',
-  menuOpen: 'Open menu',
-  menuClose: 'Close menu',
+  tabPages: {
+    home: 'Home',
+    services: 'Services',
+    work: 'Work',
+    about: 'About',
+    geo: 'GEO',
+    contact: 'Contact',
+  },
 };
 
 export const cta: CtaCopy = {
