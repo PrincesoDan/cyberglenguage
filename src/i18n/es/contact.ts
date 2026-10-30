@@ -9,6 +9,7 @@ export const contact: ContactCopy = {
   scheduleBody: 'Elija el día y la hora que le acomoden.',
   iframeTitle: 'Calendario de reservas de Cyber Positioning',
   openInNewTab: 'Abrir la agenda en una pestaña nueva',
+  linksTitle: 'Encuéntranos',
   otherTitle: 'Otras formas de contactarnos',
   emailLabel: 'Correo',
   hoursLabel: 'Horario',

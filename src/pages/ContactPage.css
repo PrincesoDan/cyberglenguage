@@ -1,3 +1,35 @@
+/* Link tree: arriba de la agenda, apilado en móvil y en fila en escritorio. */
+.contact-page__links {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.contact-page__links-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-steel);
+}
+
+.contact-page__links-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.contact-page__links-buttons .button {
+  padding-block: 16px;
+}
+
+@media (max-width: 640px) {
+  .contact-page__links-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-page__schedule {
   display: grid;
   gap: var(--space-2);

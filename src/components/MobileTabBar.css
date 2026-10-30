@@ -1,0 +1,70 @@
+/* Alto de la barra sin el área segura; WhatsAppFab y el body lo usan para no quedar debajo. */
+:root {
+  --tabbar-height: 64px;
+}
+
+.tabbar {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .tabbar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: var(--color-ink);
+    border-top: 1px solid rgba(237, 239, 243, 0.12);
+  }
+
+  body:has(.tabbar) {
+    padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
+  }
+
+  .tabbar__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: var(--tabbar-height);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tabbar__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+    color: var(--color-porcelain);
+    font-size: 0.6875rem;
+    line-height: 1;
+    opacity: 0.7;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .tabbar__link:hover {
+    text-decoration: none;
+  }
+
+  .tabbar__link[aria-current='page'] {
+    color: var(--color-gold);
+    opacity: 1;
+  }
+
+  .tabbar__link:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: -4px;
+  }
+}
+
+/* 320px: 53px por pestaña, la etiqueta más larga tiene que entrar. */
+@media (max-width: 360px) {
+  .tabbar__link {
+    font-size: 0.625rem;
+  }
+}

@@ -9,6 +9,7 @@ export const contact: ContactCopy = {
   scheduleBody: 'Pick the day and time that work for you.',
   iframeTitle: 'Cyber Positioning booking calendar',
   openInNewTab: 'Open the calendar in a new tab',
+  linksTitle: 'Find us',
   otherTitle: 'Other ways to reach us',
   emailLabel: 'Email',
   hoursLabel: 'Hours',

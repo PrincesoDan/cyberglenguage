@@ -22,8 +22,14 @@ export const nav: NavCopy = {
   },
   scheduleCta: 'Agendar',
   languageSwitchLabel: 'View this page in English',
-  menuOpen: 'Abrir menú',
-  menuClose: 'Cerrar menú',
+  tabPages: {
+    home: 'Inicio',
+    services: 'Servicios',
+    work: 'Trabajo',
+    about: 'Nosotros',
+    geo: 'GEO',
+    contact: 'Contacto',
+  },
 };
 
 export const cta: CtaCopy = {

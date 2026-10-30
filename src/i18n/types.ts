@@ -34,8 +34,8 @@ export interface NavCopy {
   scheduleCta: string;
   /** Texto accesible del switch, en el idioma de destino. */
   languageSwitchLabel: string;
-  menuOpen: string;
-  menuClose: string;
+  /** Etiquetas cortas de la barra inferior en móvil: 6 pestañas en 320px. */
+  tabPages: Record<NavPageId, string>;
 }
 
 export interface CtaCopy {
@@ -265,6 +265,8 @@ export interface ContactCopy {
   scheduleBody: string;
   iframeTitle: string;
   openInNewTab: string;
+  /** Encabezado de los botones tipo link tree (WhatsApp, Instagram, Facebook). */
+  linksTitle: string;
   otherTitle: string;
   emailLabel: string;
   hoursLabel: string;
