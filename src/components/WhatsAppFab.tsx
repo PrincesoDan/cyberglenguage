@@ -9,13 +9,13 @@ export function WhatsAppFab() {
 
   return (
     <a
-      className="whatsapp-fab"
+      className="whatsapp-fab lift"
       href={buildWhatsAppUrl(copy.whatsapp.genericMessage)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={copy.whatsapp.fabLabel}
     >
-      <WhatsAppIcon size={28} />
+      <WhatsAppIcon size={34} />
     </a>
   );
 }

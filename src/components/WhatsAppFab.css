@@ -1,22 +1,22 @@
 .whatsapp-fab {
   position: fixed;
   right: max(16px, env(safe-area-inset-right));
-  bottom: max(16px, env(safe-area-inset-bottom));
+  /* Despegado de la esquina: a la altura del pulgar y no tapado por el borde del navegador. */
+  bottom: calc(clamp(32px, 12vh, 120px) + env(safe-area-inset-bottom));
   z-index: 20;
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  background: var(--color-gold);
-  color: var(--color-ink);
+  background: var(--color-whatsapp);
+  color: var(--color-white);
   box-shadow: var(--shadow-raised);
-  transition: background-color 160ms ease, transform 160ms ease;
 }
 
+/* El crecimiento al pasar el cursor lo pone `.lift` (global.css), igual que las tarjetas. */
 .whatsapp-fab:hover {
-  background: var(--color-gold-hover);
-  transform: translateY(-2px);
+  background: var(--color-whatsapp-hover);
 }
 
 .whatsapp-fab:focus-visible {
@@ -27,6 +27,6 @@
 /* En móvil sube por encima de la barra inferior (MobileTabBar). */
 @media (max-width: 960px) {
   .whatsapp-fab {
-    bottom: calc(var(--tabbar-height) + 16px + env(safe-area-inset-bottom));
+    bottom: calc(var(--tabbar-height) + 32px + env(safe-area-inset-bottom));
   }
 }

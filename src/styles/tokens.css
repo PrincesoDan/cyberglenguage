@@ -17,6 +17,10 @@
   --color-error: #c0392b;
   --color-border: #d8dce3;
 
+  /* Verde oficial de WhatsApp, solo para el botón flotante: el color de la marca se reconoce al instante. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebe5d;
+
   /* Oro oscurecido ~8% para el hover del botón primario (§05). */
   --color-gold-hover: #ad9054;
 
