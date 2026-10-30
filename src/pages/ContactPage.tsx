@@ -29,17 +29,17 @@ export function ContactPage() {
           <h2 className="contact-page__links-title">{contact.linksTitle}</h2>
           <div className="contact-page__links-buttons">
             <a
-              className="button button--primary"
+              className="button button--primary lift"
               href={buildWhatsAppUrl(copy.whatsapp.genericMessage)}
               target="_blank"
               rel="noopener noreferrer"
             >
               <WhatsAppIcon /> WhatsApp
             </a>
-            <a className="button button--secondary" href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer">
+            <a className="button button--secondary lift" href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer">
               <InstagramIcon /> Instagram
             </a>
-            <a className="button button--secondary" href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer">
+            <a className="button button--secondary lift" href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer">
               <FacebookIcon /> Facebook
             </a>
           </div>
