@@ -10,3 +10,12 @@ describe('equipo', () => {
     ]);
   });
 });
+
+describe('fotos y perfiles', () => {
+  it('cada socio tiene foto y LinkedIn con https', () => {
+    for (const member of TEAM) {
+      expect(member.photo).toMatch(/^\/team\/.+\.webp$/);
+      expect(member.linkedin).toMatch(/^https:\/\/www\.linkedin\.com\/in\/[\x21-\x7e]+\/$/);
+    }
+  });
+});

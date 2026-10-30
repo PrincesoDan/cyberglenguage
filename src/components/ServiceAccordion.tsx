@@ -9,7 +9,7 @@ interface ServiceAccordionProps {
   onToggle: (id: ServiceId) => void;
   recommended?: boolean;
   featured?: boolean;
-  /** Muestra al final el recuadro "+ Atención a tu comunidad". */
+  /** Muestra al final el recuadro "+ Atención a su comunidad". */
   withAddOn?: boolean;
 }
 
@@ -23,7 +23,7 @@ export function ServiceAccordion({ id, open, onToggle, recommended, featured, wi
   const { services } = copy;
   const item = services.items[id];
   const panelId = `${id}-panel`;
-  const classes = ['service', featured ? 'service--featured' : '', open ? 'is-open' : ''].filter(Boolean).join(' ');
+  const classes = ['service', 'lift', 'lift--wide', featured ? 'service--featured' : '', open ? 'is-open' : ''].filter(Boolean).join(' ');
 
   return (
     <article className={classes} id={id}>

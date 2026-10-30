@@ -1,0 +1,118 @@
+.report-sample {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.report-sample__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+.report-sample__heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.report-sample__badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-porcelain);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-steel);
+}
+
+.report-sample__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.report-sample__metric dt {
+  font-size: 0.875rem;
+  color: var(--color-steel);
+}
+
+.report-sample__metric dd {
+  margin: 0;
+}
+
+.report-sample__value {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.report-sample__change {
+  font-size: 0.875rem;
+  color: var(--color-success);
+}
+
+.report-sample__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  height: 120px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.report-sample__bar {
+  flex: 1;
+  border-radius: 6px 6px 0 0;
+  background: var(--color-border);
+}
+
+.report-sample__bar.is-highlighted {
+  background: var(--color-gold);
+}
+
+.report-sample__weeks {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+  font-size: 0.8125rem;
+  color: var(--color-steel);
+}
+
+.report-sample__weeks span {
+  flex: 1;
+  text-align: center;
+}
+
+.report-sample__notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.report-sample__notes ul {
+  margin: var(--space-1) 0 0;
+  padding-left: 1.1em;
+}
+
+.report-sample__footnote {
+  font-size: 0.8125rem;
+  color: var(--color-steel);
+}
+
+@media (max-width: 640px) {
+  .report-sample__metrics,
+  .report-sample__notes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .report-sample__notes {
+    grid-template-columns: 1fr;
+  }
+}

@@ -168,6 +168,50 @@ a:hover {
   padding: var(--space-4);
 }
 
+/*
+ * Hover compartido por todos los rectángulos del sitio (misma mecánica que la
+ * landing de PaltaLabs): crece, se eleva con sombra y el borde toma el Oro.
+ * `.lift` lleva el efecto a lo que no es `.card` (acordeones, botones de links,
+ * piezas del portafolio). La variante ancha crece solo 1%: un bloque de ancho
+ * completo escalado 5% se sale del contenedor.
+ * Va después de `.button` a propósito: su `transition` reemplaza la del botón,
+ * por eso repite background-color y color.
+ */
+.card,
+.lift {
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+/* El agendar queda deshabilitado mientras falte SCHEDULING_URL: no debe invitar al click.
+   `hover: hover` evita que en touch el efecto quede pegado después del tap. */
+@media (hover: hover) {
+  .card:hover,
+  .lift:not(:disabled):hover {
+    box-shadow: var(--shadow-raised);
+  }
+
+  .card:hover {
+    border-color: var(--color-gold);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover,
+  .lift:not(:disabled):hover {
+    transform: scale(1.05);
+  }
+
+  .card--wide:hover,
+  .lift--wide:not(:disabled):hover {
+    transform: scale(1.01);
+  }
+}
+
 .lead {
   color: var(--color-steel);
   max-width: 62ch;
@@ -204,15 +248,7 @@ a:hover {
   background: rgba(192, 57, 43, 0.06);
 }
 
-.pending {
-  padding: 0 4px;
-  border-radius: 4px;
-  background: rgba(192, 57, 43, 0.12);
-  color: var(--color-error);
-}
-
-.section--dark .pending-note,
-.section--dark .pending {
+.section--dark .pending-note {
   color: #f1a097;
   border-color: #f1a097;
 }

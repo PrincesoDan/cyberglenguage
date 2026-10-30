@@ -1,11 +1,9 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import { ClosingCta } from '../components/ClosingCta';
 import { PageIntro } from '../components/PageIntro';
-import { PendingNote, PendingText } from '../components/PendingNote';
 import { SiteLayout } from '../components/SiteLayout';
-import { TEAM } from '../data/team';
-import type { TeamMember } from '../data/team';
-import { splitPendingMarkers } from '../lib/pending';
+import { TeamCarousel } from '../components/TeamCarousel';
+import { TEAM, TEAM_PHOTO } from '../data/team';
 import './AboutPage.css';
 
 /** Nosotros (brief web): historia, misión, equipo y cierre con agenda + llamada. */
@@ -22,7 +20,7 @@ export function AboutPage() {
           <div>
             <h2>{about.storyTitle}</h2>
             <p className="lead">
-              <PendingText segments={splitPendingMarkers(about.story)} />
+              {about.story}
             </p>
           </div>
           <div>
@@ -30,56 +28,26 @@ export function AboutPage() {
             <p className="lead">{about.mission}</p>
           </div>
         </div>
+        <div className="container">
+          <img
+            className="about-photo"
+            src={TEAM_PHOTO}
+            alt={about.teamPhotoAlt}
+            width={1600}
+            height={1067}
+            loading="lazy"
+          />
+        </div>
       </section>
 
       <section className="section section--light">
         <div className="container">
           <h2>{about.teamTitle}</h2>
-          <div className="about-team">
-            {TEAM.map((member) => (
-              <TeamCard key={member.id} member={member} />
-            ))}
-          </div>
+          <TeamCarousel members={TEAM} />
         </div>
       </section>
 
       <ClosingCta title={about.closing.title} body={about.closing.body} secondary="call" />
     </SiteLayout>
   );
-}
-
-function TeamCard({ member }: { member: TeamMember }) {
-  const { copy } = useLanguage();
-  const { about } = copy;
-  const bio = about.bios[member.id];
-  const details = about.details[member.id];
-
-  return (
-    <article className="card about-member">
-      {member.photo ? (
-        <img className="about-member__photo" src={member.photo} alt={member.name} width={120} height={120} />
-      ) : (
-        <span className="about-member__photo about-member__photo--initials" aria-hidden="true">
-          {initials(member.name)}
-        </span>
-      )}
-      <h3>{member.name}</h3>
-      <p className="eyebrow">{member.role}</p>
-      {bio ? <p>{bio}</p> : <PendingNote>{about.bioPending}</PendingNote>}
-
-      {/* <details> es nativo: accesible y operable con teclado sin JS (brief web: "plegable con más detalles"). */}
-      <details className="about-member__details">
-        <summary>{about.detailsLabel}</summary>
-        {details ? <p>{details}</p> : <PendingNote>{about.detailsPending}</PendingNote>}
-      </details>
-    </article>
-  );
-}
-
-function initials(name: string): string {
-  return name
-    .split(' ')
-    .map((word) => word.charAt(0))
-    .join('')
-    .slice(0, 2);
 }

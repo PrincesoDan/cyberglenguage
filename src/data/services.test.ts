@@ -13,7 +13,7 @@ describe('servicios', () => {
   it('usa los nombres cara al cliente del brief de marca §05', () => {
     expect(es.services.items.redes.name).toBe('Manejo integral de redes sociales');
     expect(en.services.items.anuncios.name).toBe('Social Media Ads');
-    expect(es.services.items.comunidad.name).toBe('Atención a tu comunidad');
+    expect(es.services.items.comunidad.name).toBe('Atención a su comunidad');
     expect(en.services.items.produccion.name).toBe('Content Production');
   });
 

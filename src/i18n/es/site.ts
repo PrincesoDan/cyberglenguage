@@ -27,9 +27,9 @@ export const nav: NavCopy = {
 };
 
 export const cta: CtaCopy = {
-  schedule: 'Agenda una llamada de 30 min',
-  whatsapp: 'Escríbenos por WhatsApp',
-  call: 'Llámanos',
+  schedule: 'Agende una llamada de 30 min',
+  whatsapp: 'Escríbanos por WhatsApp',
+  call: 'Llámenos',
   schedulingPending: 'Enlace de agenda pendiente de configurar',
 };
 
@@ -37,11 +37,11 @@ export const whatsapp: WhatsAppCopy = {
   genericMessage: 'Hola, vengo de la web de Cyber Positioning y quiero información.',
   serviceMessage: 'Hola, vengo de la web de Cyber Positioning y quiero información sobre {service}.',
   conjunction: ' y ',
-  fabLabel: 'Escríbenos por WhatsApp',
+  fabLabel: 'Escríbanos por WhatsApp',
 };
 
 export const footer: FooterCopy = {
-  tagline: 'Tú enfócate en tu pasión. Nosotros hacemos que el mundo la vea.',
+  tagline: 'Usted enfóquese en su pasión. Nosotros hacemos que el mundo la vea.',
   pagesTitle: 'Páginas',
   contactTitle: 'Contacto',
   geoNote: 'CyberLanguage es la línea de visibilidad en IA (GEO) de Cyber Positioning.',

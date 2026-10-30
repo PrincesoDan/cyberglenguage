@@ -22,19 +22,19 @@ export function LinksPage() {
         <p className="links-page__tagline">{links.tagline}</p>
 
         <nav className="links-page__buttons" aria-label={copy.site.brandName}>
-          <ScheduleButton variant="primary" label={links.schedule} />
-          <WhatsAppButton variant="primary" label={copy.cta.whatsapp} />
-          <CallButton variant="secondary" />
-          <a className="button button--secondary" href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer">
+          <ScheduleButton variant="primary" label={links.schedule} className="lift" />
+          <WhatsAppButton variant="primary" label={copy.cta.whatsapp} className="lift" />
+          <CallButton variant="secondary" className="lift" />
+          <a className="button button--secondary lift" href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer">
             Instagram
           </a>
-          <a className="button button--secondary" href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer">
+          <a className="button button--secondary lift" href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer">
             Facebook
           </a>
-          <a className="button button--secondary" href={pathFor('services', language)}>
+          <a className="button button--secondary lift" href={pathFor('services', language)}>
             {links.services}
           </a>
-          <a className="button button--secondary" href={pathFor('home', language)}>
+          <a className="button button--secondary lift" href={pathFor('home', language)}>
             {links.website}
           </a>
         </nav>

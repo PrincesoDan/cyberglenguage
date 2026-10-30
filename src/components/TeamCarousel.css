@@ -1,0 +1,183 @@
+.team-carousel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  margin-top: var(--space-4);
+}
+
+.team-carousel__stage {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.team-carousel__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 96px;
+}
+
+.team-carousel__arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: none;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.team-carousel__arrow:hover {
+  color: var(--color-gold);
+}
+
+.team-carousel__chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.team-carousel__chevron--up {
+  transform: translateY(3px) rotate(-135deg);
+}
+
+.team-carousel__chevron--down {
+  transform: translateY(-3px) rotate(45deg);
+}
+
+/* Tres miniaturas a la vista (activa + vecinas). La máscara funde los bordes
+   del riel con cualquier fondo de sección, sin depender de su color. */
+.team-carousel__track {
+  position: relative;
+  width: 100%;
+  height: 336px;
+  overflow: hidden;
+  mask-image: linear-gradient(transparent, #000 36px, #000 calc(100% - 36px), transparent);
+}
+
+/* 104px + 12px de separación = THUMB_STEP_PX en TeamCarousel.tsx. */
+.team-carousel__thumb {
+  position: absolute;
+  top: calc(50% - 52px);
+  left: 4px;
+  width: 88px;
+  height: 104px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  opacity: 0;
+  filter: grayscale(1);
+  transition: transform 400ms ease, opacity 400ms ease, filter 400ms ease;
+}
+
+.team-carousel__thumb.is-visible {
+  opacity: 0.7;
+}
+
+.team-carousel__thumb.is-active {
+  opacity: 1;
+  filter: none;
+}
+
+.team-carousel__feature {
+  width: 280px;
+  height: 416px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.team-carousel__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.team-carousel__photo--initials {
+  display: grid;
+  place-items: center;
+  background: var(--color-ink);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.team-carousel__feature .team-carousel__photo--initials {
+  font-size: 5rem;
+}
+
+.team-carousel__panel {
+  display: grid;
+  gap: var(--space-1);
+  align-content: start;
+  justify-items: start;
+}
+
+.team-carousel__panel .eyebrow {
+  margin: 0;
+}
+
+.team-carousel__linkedin {
+  margin-top: var(--space-1);
+}
+
+.team-carousel__dots {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.team-carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-border);
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.team-carousel__dot.is-active {
+  background: var(--color-ink);
+}
+
+@media (max-width: 760px) {
+  .team-carousel {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .team-carousel__stage {
+    justify-content: center;
+  }
+
+  .team-carousel__feature {
+    width: auto;
+    flex: 1;
+    max-width: 280px;
+  }
+
+  /* En mobile los puntos van pegados al carrusel, antes de la ficha. */
+  .team-carousel__dots {
+    order: 1;
+  }
+
+  .team-carousel__panel {
+    order: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-carousel__thumb {
+    transition: none;
+  }
+}

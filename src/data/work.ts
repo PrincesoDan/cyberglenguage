@@ -1,11 +1,5 @@
 import type { Language } from '../i18n/language';
-
-export interface ProductionPiece {
-  /** Ruta en public/, por ejemplo /work/dona-burguer-1.jpg */
-  image: string;
-  project: string;
-  description: Record<Language, string>;
-}
+import type { WorkStepId } from '../i18n/types';
 
 export interface ResultCase {
   image: string;
@@ -15,12 +9,27 @@ export interface ResultCase {
   result: Record<Language, string>;
 }
 
-/**
- * Material de producción (lo selecciona Carlo, brief web "Anexo"). Vacío =
- * la galería muestra fichas de "material pendiente". Agregar piezas aquí no
- * requiere rediseño.
- */
-export const PRODUCTION: readonly ProductionPiece[] = [];
-
 /** Casos de resultados: fase 2. Mientras esté vacío, el bloque no se muestra. */
 export const RESULTS: readonly ResultCase[] = [];
+
+export interface WorkStep {
+  id: WorkStepId;
+  /** Los pasos mensuales llevan la etiqueta "Cada mes" en vez de número: son el ciclo que se repite. */
+  monthly: boolean;
+}
+
+/** Proceso de "Cómo trabajamos", en orden. El texto vive en i18n (`work.steps`). */
+export const WORK_STEPS: readonly WorkStep[] = [
+  { id: 'diagnosis', monthly: false },
+  { id: 'strategy', monthly: false },
+  { id: 'production', monthly: false },
+  { id: 'publishing', monthly: false },
+  { id: 'measurement', monthly: true },
+  { id: 'adjustment', monthly: true },
+];
+
+/**
+ * Alcance semanal del reporte de ejemplo, en % del alto del gráfico. Datos
+ * ilustrativos de la propuesta; la última semana es la que se resalta.
+ */
+export const SAMPLE_REACH_BY_WEEK: readonly number[] = [48, 62, 55, 92];
