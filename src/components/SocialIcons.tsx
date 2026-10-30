@@ -17,6 +17,18 @@ export function InstagramIcon({ size = 22, className }: IconProps) {
   );
 }
 
+export function LinkedInIcon({ size = 22, className }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8 10.5V16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="8" cy="7.8" r="1.1" fill="currentColor" />
+      <path d="M11.5 16v-3.2c0-1.4.9-2.3 2.1-2.3s2 .9 2 2.3V16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M11.5 10.5V16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function FacebookIcon({ size = 22, className }: IconProps) {
   return (
     <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">

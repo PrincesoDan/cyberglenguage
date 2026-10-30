@@ -182,34 +182,75 @@ export interface HomeCopy {
   };
 }
 
+export type WorkStepId = 'diagnosis' | 'strategy' | 'production' | 'publishing' | 'measurement' | 'adjustment';
+
+export interface WorkStepCopy {
+  title: string;
+  body: string;
+  deliverable: string;
+}
+
+export interface ReportMetricCopy {
+  label: string;
+  value: string;
+  change: string;
+}
+
+/** "Cómo trabajamos": mientras no haya casos, la página muestra el proceso en vez de resultados. */
 export interface WorkCopy {
   eyebrow: string;
   title: string;
-  productionTitle: string;
-  productionBody: string;
-  pendingPiece: string;
+  lead: string;
+  processTitle: string;
+  processBody: string;
+  monthlyTag: string;
+  deliverableLabel: string;
+  steps: Record<WorkStepId, WorkStepCopy>;
+  reportTitle: string;
+  reportBody: string;
+  reportIncludes: string[];
+  /** Reporte de ejemplo con datos ilustrativos: muestra el formato, no resultados de un cliente. */
+  reportSample: {
+    heading: string;
+    badge: string;
+    metrics: ReportMetricCopy[];
+    chartLabel: string;
+    weekLabels: string[];
+    bestTitle: string;
+    best: string[];
+    nextTitle: string;
+    next: string[];
+    footnote: string;
+  };
   resultsTitle: string;
   resultsBody: string;
   challengeLabel: string;
   whatWeDidLabel: string;
   resultLabel: string;
+  closingTitle: string;
+  closingBody: string;
 }
 
 export interface AboutCopy {
   eyebrow: string;
   title: string;
   storyTitle: string;
-  /** Plantilla del brief: los huecos van entre [corchetes] y se muestran como pendientes. */
   story: string;
   missionTitle: string;
   mission: string;
+  teamPhotoAlt: string;
   teamTitle: string;
   /** null = bio pendiente de entrega. */
   bios: Record<TeamMemberId, string | null>;
   details: Record<TeamMemberId, string | null>;
   bioPending: string;
-  detailsLabel: string;
   detailsPending: string;
+  /** Prefijos de aria-label: se completan con el nombre del miembro. */
+  linkedinLabel: string;
+  linksPending: string;
+  previousMember: string;
+  nextMember: string;
+  showMember: string;
   closing: {
     title: string;
     body: string;

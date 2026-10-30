@@ -9,7 +9,7 @@ export const SITE_URL = 'https://cyberpositioning.com';
 export const GEO_DOMAIN = 'https://cyberlanguage.io';
 
 /** Vacío = los CTA de agenda se deshabilitan (ScheduleButton). */
-export const SCHEDULING_URL = 'https://cal.com/princesodan/ulab-consulting';
+export const SCHEDULING_URL = 'https://cal.com/gabriela-fonseca/30min';
 
 /** Formato wa.me: solo dígitos, con código de país. */
 export const WHATSAPP_NUMBER = '17879559917';

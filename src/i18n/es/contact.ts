@@ -3,15 +3,15 @@ import type { ContactCopy } from '../types';
 /** Brief de marca §06 "Contacto" (titular y texto). */
 export const contact: ContactCopy = {
   eyebrow: 'Contacto',
-  title: 'Hablemos de tu negocio.',
-  body: 'Escríbenos por WhatsApp o agenda una llamada de 30 minutos. Te respondemos en menos de un día laborable.',
-  scheduleTitle: 'Agenda una llamada de 30 minutos',
-  scheduleBody: 'Elige el día y la hora que te acomoden.',
+  title: 'Hablemos de su negocio.',
+  body: 'Escríbanos por WhatsApp o agende una llamada de 30 minutos. Le respondemos en menos de un día laborable.',
+  scheduleTitle: 'Agende una llamada de 30 minutos',
+  scheduleBody: 'Elija el día y la hora que le acomoden.',
   iframeTitle: 'Calendario de reservas de Cyber Positioning',
   openInNewTab: 'Abrir la agenda en una pestaña nueva',
-  linksTitle: 'Encuéntranos',
+  linksTitle: 'Encuéntrenos',
   otherTitle: 'Otras formas de contactarnos',
   emailLabel: 'Correo',
   hoursLabel: 'Horario',
-  followUs: 'Síguenos',
+  followUs: 'Síganos',
 };

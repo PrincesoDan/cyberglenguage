@@ -4,7 +4,6 @@
   background: var(--color-white);
   padding: var(--space-3);
   scroll-margin-top: 88px;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 /* Hover = solo énfasis visual; la información ya está visible. */

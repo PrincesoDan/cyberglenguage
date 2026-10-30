@@ -24,6 +24,10 @@
   opacity: 0.85;
 }
 
+.page-intro__actions {
+  margin-top: var(--space-4);
+}
+
 @media (max-width: 640px) {
   .page-intro__inner {
     flex-direction: column;

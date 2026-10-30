@@ -1,46 +1,48 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import { ClosingCta } from '../components/ClosingCta';
 import { PageIntro } from '../components/PageIntro';
+import { ReportSample } from '../components/ReportSample';
+import { ScheduleButton } from '../components/ScheduleButton';
+import { WorkProcess } from '../components/WorkProcess';
 import { SiteLayout } from '../components/SiteLayout';
-import { PRODUCTION, RESULTS } from '../data/work';
+import { RESULTS } from '../data/work';
 import './WorkPage.css';
 
-/** Cuántas fichas pendientes mostrar mientras no hay material: llena el carrete en desktop. */
-const PENDING_SLOTS = 4;
-
-/** Nuestro trabajo (brief web): carrete de producción + casos (fase 2). */
+/**
+ * Nuestro trabajo, en la versión "Cómo trabajamos": sin casos pasados todavía,
+ * la página muestra el proceso y el formato del reporte. Los
+ * resultados (fase 2) aparecen solos cuando RESULTS deja de estar vacío.
+ */
 export function WorkPage() {
   const { copy, language } = useLanguage();
-  const { work, home } = copy;
+  const { work } = copy;
 
   return (
     <SiteLayout>
-      <PageIntro eyebrow={work.eyebrow} title={work.title} icon="/brand/icons/logros.png" />
+      <PageIntro eyebrow={work.eyebrow} title={work.title} lead={work.lead} icon="/brand/icons/logros.png">
+        <ScheduleButton variant="primary" label={copy.cta.schedule} />
+      </PageIntro>
 
       <section className="section">
         <div className="container">
-          <h2>{work.productionTitle}</h2>
-          <p className="lead work__lead">{work.productionBody}</p>
+          <h2>{work.processTitle}</h2>
+          <p className="lead work__lead">{work.processBody}</p>
+          <WorkProcess />
+        </div>
+      </section>
 
-          <ul className="work-reel" aria-label={work.productionTitle}>
-            {PRODUCTION.length > 0
-              ? PRODUCTION.map((piece) => (
-                  <li className="work-reel__item" key={piece.image}>
-                    <figure>
-                      <img src={piece.image} alt={piece.description[language]} loading="lazy" />
-                      <figcaption>
-                        <strong>{piece.project}</strong>
-                        <span>{piece.description[language]}</span>
-                      </figcaption>
-                    </figure>
-                  </li>
-                ))
-              : Array.from({ length: PENDING_SLOTS }, (_, index) => (
-                  <li className="work-reel__item work-reel__item--pending" key={index}>
-                    <p className="pending-note">{work.pendingPiece}</p>
-                  </li>
-                ))}
-          </ul>
+      <section className="section section--light">
+        <div className="container work-report">
+          <div>
+            <h2>{work.reportTitle}</h2>
+            <p className="lead work__lead">{work.reportBody}</p>
+            <ul className="work-report__list">
+              {work.reportIncludes.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <ReportSample />
         </div>
       </section>
 
@@ -70,7 +72,7 @@ export function WorkPage() {
         </section>
       )}
 
-      <ClosingCta title={home.closing.title} body={home.closing.body} />
+      <ClosingCta title={work.closingTitle} body={work.closingBody} />
     </SiteLayout>
   );
 }

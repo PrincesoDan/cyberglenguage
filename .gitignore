@@ -7,3 +7,9 @@ dist-ssr
 info
 # Material del cliente (briefs, zips). Fuente de trabajo, no se versiona.
 temp/
+# Fotos originales del equipo (RAW y descargas de WeTransfer): el sitio usa las versiones WebP de public/team.
+*.cr2
+*.CR2
+wetransfer_*/
+# Caché de compilación incremental de TypeScript (tsc -b): se regenera en cada build.
+*.tsbuildinfo
